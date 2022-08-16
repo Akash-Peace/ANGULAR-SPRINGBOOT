@@ -1,0 +1,9 @@
+.container{
+    max-width: 350px;
+    height: 500px;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 5% auto;
+}

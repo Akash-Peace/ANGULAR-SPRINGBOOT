@@ -1,0 +1,13 @@
+<div class="movie-card-container">
+  <mat-card class="example-card" *ngFor="let movie of movies">
+    <mat-card-header>
+      <mat-card-title>{{movie.id}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src={{movie.url}} alt="Photo of a Shiba Inu">
+    <mat-card-content [ngStyle]="{'color' : movie['albumId'] === 1 ? 'red' : 'blue'}">
+      <p>
+        {{movie.title}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

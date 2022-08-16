@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Signup</h1>
+    <h3>Hello <span style="color: orange;">{{name}}</span></h3>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <p *ngIf="usernameConstraints() || usernameTaken() || isUsernameAlertMessage()" style="color: red;">{{usernameAlertMessage}}</p>
+      <input matInput [(ngModel)]="username">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <p *ngIf="passwordConstraints() || isPasswordAlertMessage()" style="color: red;">{{passwordAlertMessage}}</p>
+      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button [disabled]="username === '' || password === '' || usernameAlertMessage !== '' || passwordAlertMessage !== '' || name === ''" 
+      (click)="addUser()" mat-raised-button style="margin: 0 25% 0 25%;" color="primary">
+        Submit
+    </button>
+    <p style="cursor: pointer;" (click)="redirectToLoginPage()">New user?</p>
+</div>
